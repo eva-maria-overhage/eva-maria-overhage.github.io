@@ -1,0 +1,40 @@
+.wrapper {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    width: 100%;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.yearTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+
+.test-section {
+    height: 400px;
+    width: 400px;
+}
+
+.exhibitionData {
+    display: grid;
+    font-size: 1.5em;
+    width: 100%;
+}
+
+.timeline-dot {
+    aspect-ratio: 1;
+    border-width: 2px;
+}

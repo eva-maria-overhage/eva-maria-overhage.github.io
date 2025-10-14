@@ -1,0 +1,127 @@
+{
+  "instagram-logo": {
+    "description": "Instagram Logo",
+    "type": "IMAGE",
+    "url": "./logos/instagram.svg"
+  },
+  "hero-video": {
+    "description": "",
+    "type": "VIDEO",
+    "url": "./videos/reel.webm"
+  },
+  "daemon-main": {
+    "description": "Dämon",
+    "type": "IMAGE",
+    "url": "./artworks/daemon/main.jpg"
+  },
+  "daemon-part1": {
+    "description": "Dämon, Part 1",
+    "type": "IMAGE",
+    "url": "./artworks/daemon/part1.jpg"
+  },
+  "daemon-part2": {
+    "description": "Dämon, Part 2",
+    "type": "IMAGE",
+    "url": "./artworks/daemon/part2.jpg"
+  },
+  "fressen-main": {
+    "description": "Gefundenes Fressen",
+    "type": "IMAGE",
+    "url": "./artworks/fressen/main.jpg"
+  },
+  "fressen-part1": {
+    "description": "Gefundenes Fressen, Detail 1",
+    "type": "IMAGE",
+    "url": "./artworks/fressen/part1.jpeg"
+  },
+  "fressen-part2": {
+    "description": "Gefundenes Fressen, Detail 2",
+    "type": "IMAGE",
+    "url": "./artworks/fressen/part2.jpeg"
+  },
+  "fressen-scene-main": {
+    "description": "Gefundenes Fressen, Szene",
+    "type": "IMAGE",
+    "url": "./artworks/fressen/szene-main.jpeg"
+  },
+  "klone-main": {
+    "description": "Klone",
+    "type": "IMAGE",
+    "url": "./artworks/klone/main.jpg"
+  },
+  "klone-scene1": {
+    "description": "Klone, Szene 1",
+    "type": "IMAGE",
+    "url": "./artworks/klone/szene1.jpg"
+  },
+  "klone-scene2": {
+    "description": "Klone, Szene 2",
+    "type": "IMAGE",
+    "url": "./artworks/klone/szene2.jpeg"
+  },
+  "auslieferung-main": {
+    "description": "Auslieferung",
+    "type": "IMAGE",
+    "url": "./artworks/auslieferung/main.jpg"
+  },
+  "auslieferung-scene-main": {
+    "description": "Auslieferung, Szene 1",
+    "type": "IMAGE",
+    "url": "./artworks/auslieferung/szene-main.jpeg"
+  },
+  "angles-morts-main": {
+    "description": "ATTENTION! ANGLES MORTS",
+    "type": "IMAGE",
+    "url": "./artworks/angles-morts/main.jpg"
+  },
+  "angles-morts-scene1": {
+    "description": "ATTENTION! ANGLES MORTS, Szene 1",
+    "type": "IMAGE",
+    "url": "./artworks/angles-morts/szene1.jpg"
+  },
+  "tpli-main": {
+    "description": "TPLI",
+    "type": "IMAGE",
+    "url": "./artworks/tpli/main.jpg"
+  },
+  "tpli-part1": {
+    "description": "TPLI, Detail 1",
+    "type": "IMAGE",
+    "url": "./artworks/tpli/part1.jpg"
+  },
+  "tpli-part2": {
+    "description": "TPLI, Detail 2",
+    "type": "IMAGE",
+    "url": "./artworks/tpli/part2.jpg"
+  },
+  "squares-title-main": {
+    "description": "▯▯▯▯▯▯▯▯▯▯▯▯▯▯",
+    "type": "IMAGE",
+    "url": "./artworks/squares-title/main.jpg"
+  },
+  "squares-title-scene-main": {
+    "description": "▯▯▯▯▯▯▯▯▯▯▯▯▯▯, Szene 1",
+    "type": "IMAGE",
+    "url": "./artworks/squares-title/szene-main.jpeg"
+  },
+  "otium-scene1": {
+    "description": "Otium, Szene 1",
+    "type": "IMAGE",
+    "url": "./artworks/otium/szene1.jpeg"
+  },
+  "otium-scene2": {
+    "description": "Otium, Szene 2",
+    "type": "IMAGE",
+    "url": "./artworks/otium/szene2.jpeg"
+  },
+  "otium-scene3": {
+    "description": "Otium, Szene 3",
+    "type": "IMAGE",
+    "url": "./artworks/otium/szene3.jpeg"
+  },
+  "otium-scene4": {
+    "description": "Otium, Szene 4",
+    "type": "IMAGE",
+    "url": "./artworks/otium/szene4.jpeg"
+  }
+}

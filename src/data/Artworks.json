@@ -1,0 +1,159 @@
+{
+  "klone": {
+    "title": "Klone",
+    "description": "",
+    "year": "2024",
+    "heroMediaId": "klone-main",
+    "mediaIds": [
+      "klone-main",
+      "klone-scene1",
+      "klone-scene2"
+    ],
+    "size": {
+      "height": "100",
+      "width": "140",
+      "unit": "cm"
+    },
+    "materials": [],
+    "technique": "Airbrush, Acryl, 3D-Stift auf PVC-Boden",
+    "tags": []
+  },
+  "tpli": {
+    "title": "TPLI",
+    "description": "",
+    "year": "2024",
+    "mediaIds": [],
+    "size": {
+      "height": "400",
+      "width": "300",
+      "unit": "cm"
+    },
+    "materials": [
+      "Gaffa",
+      "Malerfolie",
+      "Gartenfolie"
+    ],
+    "tags": []
+  },
+  "gefundenes_fressen": {
+    "title": "Gefundenes Fressen",
+    "description": "",
+    "year": "2024",
+    "heroMediaId": "fressen-main",
+    "mediaIds": [
+      "fressen-main",
+      "fressen-part1",
+      "fressen-part2"
+    ],
+    "size": {
+      "height": "100",
+      "width": "125",
+      "unit": "cm"
+    },
+    "materials": [],
+    "technique": "Airbrush, Acrylfarbe und Klebefolie auf PVC-Plane",
+    "tags": []
+  },
+  "squares_title": {
+    "title": "▯▯▯▯▯▯▯▯▯▯▯▯▯▯",
+    "description": "",
+    "year": "2024",
+    "heroMediaId": "squares-title-main",
+    "mediaIds": [
+      "squares-title-main",
+      "squares-title-scene-main"
+    ],
+    "size": {
+      "height": "30",
+      "width": "94",
+      "unit": "cm"
+    },
+    "materials": [],
+    "technique": "Acrylfarbe auf Aluminiumplatte",
+    "tags": []
+  },
+  "catching_w/o_releasing": {
+    "title": "Catching without releasing",
+    "year": "2025",
+    "mediaIds": [],
+    "size": {
+      "height": "164",
+      "width": "127",
+      "unit": "cm"
+    },
+    "materials": [],
+    "technique": "Sprühfarbe auf Dachisolationsfolie ",
+    "tags": []
+  },
+  "daemon": {
+    "title": "Dämon",
+    "description": "",
+    "year": "2024",
+    "mediaIds": [
+      "daemon-main",
+      "daemon-part1",
+      "daemon-part2"
+    ],
+    "heroMediaId": "daemon-main",
+    "size": {
+      "height": 100,
+      "width": 200,
+      "unit": "cm"
+    },
+    "materials": [],
+    "technique": "Sprühfarbe, Acryl und Teppich auf Gewebe",
+    "tags": []
+  },
+  "angles-morts": {
+    "title": "ATTENTION! ANGLES MORTS",
+    "description": "",
+    "year": "2025",
+    "heroMediaId": "angles-morts-main",
+    "mediaIds": [
+      "angles-morts-main",
+      "angles-morts-scene1"
+    ],
+    "size": {
+      "height": "268",
+      "width": "300",
+      "depth": "284",
+      "unit": "cm"
+    },
+    "materials": [],
+    "technique": "Installation mit LKW-Planen, Holz, Hebegurten und Reflexfolie",
+    "tags": []
+  },
+  "auslieferung": {
+    "title": "Auslieferung",
+    "description": "",
+    "year": "2024",
+    "heroMediaId": "auslieferung-main",
+    "mediaIds": [
+      "auslieferung-main",
+      "auslieferung-scene-main"
+    ],
+    "size": {
+      "height": "100",
+      "width": "140",
+      "unit": "cm"
+    },
+    "materials": [],
+    "technique": "Sprühfarbe, Acryl und Teppich auf Gewebe",
+    "tags": []
+  },
+  "otium": {
+    "title": "Otium",
+    "description": "",
+    "year": "2024",
+    "heroMediaId": "otium-scene1",
+    "mediaIds": [
+      "otium-scene1",
+      "otium-scene2",
+      "otium-scene3",
+      "otium-scene4"
+    ],
+    "materials": [],
+    "technique": "Video",
+    "tags": []
+  }
+}

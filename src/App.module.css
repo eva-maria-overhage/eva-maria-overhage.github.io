@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 10%;
+    aspect-ratio: 1/1;
+
+    margin: 10px;
+}
+
+.test_section {
+    height: 400px;
+    width: 400px;
+}
+
+.testTag {
+    margin: 10px;
+    transition: all 0.25s ease-in-out;
+}
+
+
+@media(prefers-reduced-motion: no-preference) {
+    .testTag:hover {
+        scale: 1.05;
+    }
+}
+
+.hoverContainer {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+.exampleHover::after {
+    --underscore-size: 2px;
+    bottom: calc(var(--underscore-size) * -0.5);
+    content: "";
+    height: var(--underscore-size);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-in-out;
+    width: 100%;
+    left: 0;
+    background-color: #FFF;
+    position: absolute;
+}
+
+.exampleHover:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/*@keyframes logo-spin {*/
+/*    from {*/
+/*        transform: rotate(0deg);*/
+/*    }*/
+/*    to {*/
+/*        transform: rotate(360deg);*/
+/*    }*/
+/*}*/
+
+/*@media (prefers-reduced-motion: no-preference) {*/
+/*    a:nth-of-type(2) .logo {*/
+/*        animation: logo-spin infinite 20s linear;*/
+/*    }*/
+/*}*/
+

@@ -1,0 +1,77 @@
+.headerSection {
+    height: fit-content;
+
+    margin-top: 10px;
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.headerContent {
+    width: 100%;
+}
+
+.headerCollapseControl {
+    height: 40px;
+    width: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background: none;
+    overflow: hidden;
+}
+
+.headerCollapseIcon {
+    height: 50%;
+    width: 50%;
+
+    object-fit: contain;
+
+    cursor: pointer;
+
+    stroke: white;
+
+    transition: all 0.25s ease-in-out;
+    transform: rotate(90deg);
+}
+
+.headerCollapseIcon:focus-visible {
+    scale: 1.25;
+}
+
+.headerCollapseIcon:hover {
+    scale: 1.25;
+}
+
+
+.iconCollapsed {
+    transform: rotate(0deg);
+}
+
+.collapsible {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.25s ease-out, opacity 0.25s ease-in-out 0.25s;
+    height: fit-content;
+    overflow: hidden;
+}
+
+.collapsed {
+    grid-template-rows: 0fr;
+    opacity: 0;
+}
+
+.contentWrapper {
+    overflow: hidden;
+}
+
+.collapsibleMarker {
+    border-bottom: 2px solid var(--primary);
+}

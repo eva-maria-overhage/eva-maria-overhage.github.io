@@ -1,0 +1,43 @@
+{
+  "rundgangDerKunst2023": {
+    "startDate": "2023-01-01",
+    "name": "Rundgang der Kunst der TU Dortmund",
+    "location": "Dortmunder U, Dortmund"
+  },
+  "rundgangDerKunst2024": {
+    "startDate": "2024-01-01",
+    "name": "Rundgang der Kunst der TU Dortmund",
+    "location": "Dortmunder U, Dortmund"
+  },
+  "toilets2024": {
+    "startDate": "2024-01-01",
+    "name": "\"Toilets\"",
+    "location": "Speicher 100, Dortmund"
+  },
+  "tabula2024": {
+    "startDate": "2024-01-01",
+    "name": "\"Tabula Picta Lorem Ipsum II\"",
+    "location": "Laden 1A, Dortmund"
+  },
+  "oneroom2025": {
+    "startDate": "2025-01-01",
+    "name": "\"ONEROOMSHOW\"",
+    "location": "Rekorder II, Dortmund"
+  },
+  "laborartdepot2025": {
+    "startDate": "2025-01-01",
+    "name": "\"laborARTdepot\"",
+    "location": "Depot, Dortmund"
+  },
+  "rundgangDerKunst2025": {
+    "startDate": "2025-01-01",
+    "name": "Rundgang der Kunst der TU Dortmund",
+    "location": "Dortmunder U, Dortmund"
+  },
+  "tabula2025": {
+    "startDate": "2025-09-01",
+    "endDate": "2026-01-31",
+    "name": "\"Tabula Picta Lorem Ipsum\"",
+    "location": "Superraum, Dortmund"
+  }
+}
