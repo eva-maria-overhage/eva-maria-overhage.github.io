@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import {createBrowserRouter, RouterProvider} from "react-router";
+import { createHashRouter, RouterProvider} from "react-router";
 import './index.css'
 import Root from "./routes/Root.tsx";
 import Imprint from "./routes/Imprint.tsx";
@@ -8,7 +8,7 @@ import Home, {HomeLoader} from "@/routes/Home.tsx";
 import Exhibitions, {loader as ExhibitionsLoader} from "./routes/Exhibitions.tsx";
 import Artworks, {ArtworkLoader} from "@/routes/Artworks.tsx";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: "/",
         Component: Root,
