@@ -6,10 +6,11 @@ import {
     DateTimeOrderingStrategy, DateToDateTimeOrderingAdapter, DescendingDateTimeStrategy,
     FirstOpenStrategy,
     InitialCollapsedStrategy, YearToDateTimeOrderingAdapter,
-    DateDisplayStrategy, DisplayMonthLongStrategy,
+    DateDisplayStrategy, DisplayStartMonthLongStrategy,
 
 } from "./ExhibitionDisplay.config.ts";
 import {ID} from "../../../../types/data/Shared.ts";
+import {Tooltip, TooltipContent, TooltipTrigger} from "@/components/ui/tooltip.tsx";
 
 export interface ExhibitionDisplayProps {
     collapseStrategy?: InitialCollapsedStrategy;
@@ -17,44 +18,105 @@ export interface ExhibitionDisplayProps {
     dateDisplayStrategy?: DateDisplayStrategy;
 }
 
-export interface InternalExhibitionData extends Exhibition {
+enum ExhibitionStatus {
+    UPCOMING = "upcoming",
+    ACTIVE = "active",
+    PAST = "past"
+}
+
+type StatusInfo =
+    | { type: ExhibitionStatus.UPCOMING, daysUntil: number }
+    | { type: ExhibitionStatus.ACTIVE, remainingDays: number }
+    | { type: ExhibitionStatus.PAST };
+
+interface InternalExhibitionData extends Exhibition {
     id: ID<Exhibition>;
     startDateObject: Date;
     endDateObject: Date;
+    status: StatusInfo;
 }
 
-
 const dataToInternalMapping = (exhibitions: Record<ID<Exhibition>, Exhibition>): Map<string, InternalExhibitionData[]> => {
-    return Object.entries(exhibitions)
-        .map(([id, exhibitions]) => {
-            const newData = exhibitions as unknown as InternalExhibitionData;
-            newData.startDateObject = new Date(exhibitions.startDate);
-            newData.endDateObject = new Date(exhibitions.endDate ?? exhibitions.startDate);
-            newData.id = id;
-            return newData;
-        }).reduce((previousValue, currentValue) => {
-            const year = currentValue.startDateObject.getFullYear().toString();
-            let yearEntries = previousValue.get(year);
-            if (yearEntries === undefined) {
-                yearEntries = [];
-                previousValue.set(year, yearEntries);
-            }
-            yearEntries.push(currentValue);
-            return previousValue;
-        }, new Map<string, InternalExhibitionData[]>());
+    const today = new Date();
+    const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+    return Object.entries(exhibitions).map(([id, exhibition]) => {
+        const startDateObject = new Date(exhibition.startDate);
+        const endDateObject = new Date(exhibition.endDate ?? exhibition.startDate);
+
+        let status: StatusInfo;
+
+        if (startDateObject > todayMidnight) {
+            const daysUntil = Math.ceil((startDateObject.getTime() - todayMidnight.getTime()) / (1000 * 60 * 60 * 24));
+            status = {type: ExhibitionStatus.UPCOMING, daysUntil};
+        } else if (endDateObject < todayMidnight) {
+            status = {type: ExhibitionStatus.PAST};
+        } else {
+            const remainingDays = Math.ceil((endDateObject.getTime() - todayMidnight.getTime()) / (1000 * 60 * 60 * 24));
+            status = {type: ExhibitionStatus.ACTIVE, remainingDays};
+        }
+
+        return {
+            ...exhibition,
+            id,
+            startDateObject,
+            endDateObject,
+            status
+        };
+    }).reduce((map, exhibition) => {
+        const year = exhibition.startDateObject.getFullYear().toString();
+        if (!map.has(year)) map.set(year, []);
+        map.get(year)!.push(exhibition);
+        return map;
+    }, new Map<string, InternalExhibitionData[]>());
+};
+
+
+const renderStatusIndicator = (exhibition: InternalExhibitionData) => {
+    const status = exhibition.status;
+    switch (status.type) {
+        case ExhibitionStatus.PAST:
+            return <div className={"timeline-dot-wrapper relative"}>
+                <div className="timeline-dot absolute opacity-50"/>
+            </div>;
+        case ExhibitionStatus.ACTIVE: {
+            //TODO: Maybe date-fns for localization & timestamp handling
+
+            const daysRemaining = status.remainingDays;
+
+            const ttText = daysRemaining === 1 ? "Nur noch heute!" : `Noch ${daysRemaining} Tage zu sehen`;
+
+            return (
+                <Tooltip>
+                    <TooltipTrigger>
+                        <div className={"timeline-dot-wrapper relative"}>
+                            <div className={"timeline-dot animate-ping absolute"}/>
+                            <div className="timeline-dot absolute"/>
+                        </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                        {ttText}
+                    </TooltipContent>
+                </Tooltip>
+            );
+        }
+        case ExhibitionStatus.UPCOMING: {
+            return <div className={"timeline-dot-wrapper relative"}>
+                <div className="timeline-dot absolute"/>
+            </div>;
+        }
+    }
 }
 
 const ExhibitionDisplay = (
     {
         collapseStrategy = FirstOpenStrategy,
         dateTimeStrategy = DescendingDateTimeStrategy,
-        dateDisplayStrategy = DisplayMonthLongStrategy
+        dateDisplayStrategy = DisplayStartMonthLongStrategy
     }: ExhibitionDisplayProps
 ) => {
 
     const exhibitionsMapping = dataToInternalMapping(exhibitions);
-
-    const today = new Date();
 
     if (exhibitionsMapping.size === 0) {
         return <div>No exhibitions available (yet)</div>;
@@ -88,20 +150,13 @@ const ExhibitionDisplay = (
                                                     return DateToDateTimeOrderingAdapter(dateTimeStrategy, a.startDateObject, b.startDateObject);
                                                 })
                                                 .map((exhibition) => {
-
-                                                    const isFuture = exhibition.endDateObject.getTime() > today.getTime();
-                                                    const isActive = exhibition.endDateObject.getTime() >= today.getTime() && exhibition.startDateObject.getTime() <= today.getTime();
-
                                                     return (
-                                                        <li key={exhibition.id}
-                                                            className={"w-full flex-row items-center justify-center h-fit grid-cols-[0fr_minmax(0,_1fr)] grid text-lg"}>
-                                                            <div className="timeline-dot-wrapper relative">
-                                                                {isActive ? <div className={"timeline-dot animate-ping absolute"}/> : null}
-                                                                {isFuture ?
-                                                                    <div className="timeline-dot absolute"/> :
-                                                                    <div className="timeline-dot absolute opacity-50"/>}
+                                                        <li key={exhibition.id}>
+                                                            <div
+                                                                className={"w-full flex-row items-center justify-center h-fit grid-cols-[0fr_minmax(0,_1fr)] grid text-lg"}>
+                                                                {renderStatusIndicator(exhibition)}
+                                                                <p>{dateDisplayStrategy(exhibition.startDateObject)}: {exhibition.name} - {exhibition.location}</p>
                                                             </div>
-                                                            {dateDisplayStrategy(exhibition.startDateObject)}: {exhibition.name} - {exhibition.location}
                                                         </li>
                                                     )
                                                 })

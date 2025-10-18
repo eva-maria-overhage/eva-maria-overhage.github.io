@@ -1,42 +1,49 @@
 {
   "rundgangDerKunst2023": {
-    "startDate": "2023-01-01",
+    "startDate": "2023-07-07",
+    "endDate": "2023-07-30",
     "name": "Rundgang der Kunst der TU Dortmund",
     "location": "Dortmunder U, Dortmund"
   },
   "rundgangDerKunst2024": {
-    "startDate": "2024-01-01",
+    "startDate": "2024-07-19",
+    "endDate": "2024-08-18",
     "name": "Rundgang der Kunst der TU Dortmund",
     "location": "Dortmunder U, Dortmund"
   },
   "toilets2024": {
-    "startDate": "2024-01-01",
+    "startDate": "2024-08-30",
+    "endDate": "2024-09-03",
     "name": "\"Toilets\"",
     "location": "Speicher 100, Dortmund"
   },
   "tabula2024": {
-    "startDate": "2024-01-01",
+    "startDate": "2024-11-07",
+    "endDate": "2025-01-11",
     "name": "\"Tabula Picta Lorem Ipsum II\"",
     "location": "Laden 1A, Dortmund"
   },
   "oneroom2025": {
-    "startDate": "2025-01-01",
+    "startDate": "2025-03-14",
+    "endDate": "2025-03-16",
     "name": "\"ONEROOMSHOW\"",
     "location": "Rekorder II, Dortmund"
   },
   "laborartdepot2025": {
-    "startDate": "2025-01-01",
+    "startDate": "2025-05-12",
+    "endDate": "2025-05-18",
     "name": "\"laborARTdepot\"",
     "location": "Depot, Dortmund"
   },
   "rundgangDerKunst2025": {
-    "startDate": "2025-01-01",
+    "startDate": "2025-07-18",
+    "endDate": "2025-08-17",
     "name": "Rundgang der Kunst der TU Dortmund",
     "location": "Dortmunder U, Dortmund"
   },
   "tabula2025": {
-    "startDate": "2025-09-01",
-    "endDate": "2026-01-31",
+    "startDate": "2025-11-07",
+    "endDate": "2026-12-16",
     "name": "\"Tabula Picta Lorem Ipsum\"",
     "location": "Superraum, Dortmund"
   }

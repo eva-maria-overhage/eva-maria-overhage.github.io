@@ -6,7 +6,7 @@ import Root from "./routes/Root.tsx";
 import Imprint from "./routes/Imprint.tsx";
 import Home, {HomeLoader} from "@/routes/Home.tsx";
 import Exhibitions, {loader as ExhibitionsLoader} from "./routes/Exhibitions.tsx";
-import Artworks, {ArtworkLoader} from "@/routes/Artworks.tsx";
+import Artworks from "@/routes/Artworks.tsx";
 
 const router = createHashRouter([
     {
@@ -20,8 +20,7 @@ const router = createHashRouter([
             },
             {
                 path: "artworks",
-                Component: Artworks,
-                loader: ArtworkLoader
+                Component: Artworks
             },
             {
                 path: "exhibitions",

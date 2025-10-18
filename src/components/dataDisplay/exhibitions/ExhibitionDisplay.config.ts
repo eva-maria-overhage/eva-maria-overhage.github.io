@@ -11,21 +11,21 @@ export const FirstOpenStrategy: InitialCollapsedStrategy = (index: number) => in
 // ========================== Date Display Strategies ==========================
 // =============================================================================
 
-export type DateDisplayStrategy = (date: Date) => string;
+export type DateDisplayStrategy = (startDate: Date, endDate?: Date) => string;
 
-export const DisplayYearStrategy = (date: Date) => {
-    return date.toLocaleDateString(undefined, {year: 'numeric'});
+export const DisplayStartYearStrategy = (startDate: Date) => {
+    return startDate.toLocaleDateString(undefined, {year: 'numeric'});
 }
 
-export const DisplayYearMonthStrategy = (date: Date) => {
+export const DisplayStartYearMonthStrategy = (date: Date) => {
     return date.toLocaleDateString(undefined, {year: 'numeric', month: '2-digit'});
 }
 
-export const DisplayFullDateStrategy = (date: Date) => {
+export const DisplayFullStartDateStrategy = (date: Date) => {
     return date.toLocaleDateString(undefined, {year: 'numeric', month: 'short', day: 'numeric'});
 }
 
-export const DisplayMonthLongStrategy = (date: Date) => {
+export const DisplayStartMonthLongStrategy = (date: Date) => {
     return date.toLocaleDateString(undefined, {month: 'long'});
 }
 
