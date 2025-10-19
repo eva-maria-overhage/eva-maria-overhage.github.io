@@ -36,7 +36,7 @@
 
     cursor: pointer;
 
-    stroke: white;
+    stroke: var(--primary);
 
     transition: all 0.25s ease-in-out;
     transform: rotate(90deg);
