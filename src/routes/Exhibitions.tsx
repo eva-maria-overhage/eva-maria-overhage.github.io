@@ -1,16 +1,12 @@
 import ExhibitionDisplay from "../components/dataDisplay/exhibitions/ExhibitionDisplay.tsx";
-export const loader = async () => {
-    return;
-};
+import DefaultRouteAlignment from "@/components/general/DefaultRouteAlignment.tsx";
 
 
 const Exhibitions = () => {
     return (
-        <div className={"w-full h-full flex justify-center align-center"}>
-            <div className={"mx-12 my-3 w-full"}>
-                <ExhibitionDisplay/>
-            </div>
-        </div>
+        <DefaultRouteAlignment>
+            <ExhibitionDisplay/>
+        </DefaultRouteAlignment>
     )
 }
 

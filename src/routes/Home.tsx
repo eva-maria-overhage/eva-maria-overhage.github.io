@@ -1,18 +1,6 @@
-import {useLoaderData} from "react-router";
 import MediaDisplay from "@/components/media/MediaDisplay.tsx";
 
-interface HomeLoderData {
-}
-
-export const HomeLoader = async () => {
-
-};
-
 const Home = () => {
-
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-expect-error
-    const loaderData = useLoaderData<HomeLoderData>();
 
     return (
         <>

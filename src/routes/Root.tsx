@@ -11,20 +11,20 @@ import {
 import {cn} from "@/lib/utils.ts";
 
 interface SimpleLink {
-    to: string
     label: string
 }
 
-const links: SimpleLink[] = [
-    {to: "/", label: "Startseite"},
-    //{to: "/about", label: "Biographie"},
-    {to: "/artworks", label: "Werke"},
-    {to: "/exhibitions", label: "Ausstellungen"},
-];
+const links: Record<string, SimpleLink> = {
+    "/": {label: "Startseite"},
+    //"/about": {label: "Biographie"},
+    "/artworks": {label: "Werke"},
+    "/exhibitions": {label: "Ausstellungen"},
+};
 
 const Root = () => {
 
     const location = useLocation();
+    const linkEntries = Object.entries(links);
 
     return (
         <>
@@ -36,11 +36,11 @@ const Root = () => {
                         </div>
                         <div className={"flex justify-end items-center flex-1"}>
                             {
-                                links.map((link) => {
+                               linkEntries.map(([to, link]) => {
                                     return (
-                                        <div key={link.to} className={"inline-flex h-full"}>
+                                        <div key={to} className={"inline-flex h-full"}>
                                             <div className={"static px-4 flex justify-center items-center"}>
-                                                <NavLink to={link.to} tabIndex={-1}>
+                                                <NavLink to={to} tabIndex={-1}>
                                                     <p className={"cool-underline transition-all hover:scale-105"}
                                                        tabIndex={0}>{link.label}</p>
                                                 </NavLink>
@@ -51,22 +51,27 @@ const Root = () => {
                             }
                         </div>
                     </div>
-                    <div className="flex lg:hidden items-center text-lg ml-[5%] h-full w-full text-primary">
+                    <div className="flex lg:hidden items-center text-lg px-[5%] h-full w-full text-primary flex-row justify-end">
+                        <div className={"flex justify-start items-center font-bold text-xl w-full"}>
+                            {
+                                links[location.pathname].label
+                            }
+                        </div>
                         <Sheet>
                             <SheetTrigger>
-                                <p className={"text-2xl"}>☰</p>
+                                <p className={"text-2xl flex-1"}>☰</p>
                             </SheetTrigger>
-                            <SheetContent side={"left"} className="w-max-[100dvw] w-full">
+                            <SheetContent side={"right"} className="w-max-[100dvw] w-full">
                                 <SheetHeader>
                                     <SheetTitle className={"text-3xl"}>
                                         Navigation
                                     </SheetTitle>
                                 </SheetHeader>
-                                {links.map((link) => (
-                                    <div key={link.to} className="pl-4">
+                                {linkEntries.map(([to, link]) => (
+                                    <div key={to} className="pl-4">
                                         <div className={"w-fit text-xl"}>
                                             <SheetClose asChild>
-                                                <NavLink to={link.to} tabIndex={-1}>
+                                                <NavLink to={to} tabIndex={-1}>
                                                         <span
                                                             className={cn("cool-underline dummy-transition")}
                                                             tabIndex={0}>{link.label}</span>

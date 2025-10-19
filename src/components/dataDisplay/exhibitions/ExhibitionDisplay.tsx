@@ -1,7 +1,6 @@
 import {Exhibition} from "../../../../types/data/Exhibition.ts";
 import exhibitions from "@/data/Exhibitions.json";
-import styles from "./ExhibitionDisplay.module.css";
-import Collapsible, {ClickListenerLocation} from "../../general/Collapsible.tsx";
+import Collapsible, {ClickListenerLocation} from "../../general/collapsible/Collapsible.tsx";
 import {
     DateTimeOrderingStrategy, DateToDateTimeOrderingAdapter, DescendingDateTimeStrategy,
     FirstOpenStrategy,
@@ -123,9 +122,9 @@ const ExhibitionDisplay = (
     }
 
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.content}>
-                <div className={styles.title}>
+        <div className={"w-full flex items-center justify-center"}>
+            <div className={"w-full"}>
+                <div className={"text-3xl font-bold mb-4 hidden lg:block"}>
                     <h1>Ausstellungen</h1>
                 </div>
                 {
@@ -140,7 +139,7 @@ const ExhibitionDisplay = (
                                     bottomBorder={true}
                                     clickListenerLocation={ClickListenerLocation.WHOLE_HEADER}
                                     header={
-                                        <h1 className={styles.yearTitle}>{year}</h1>
+                                        <h1 className={"text-2xl"}>{year}</h1>
                                     }
                                     initialCollapsed={collapseStrategy(index)}>
                                     <ul className={"my-1"}>
