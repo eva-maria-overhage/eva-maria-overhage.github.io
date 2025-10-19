@@ -77,7 +77,12 @@
   "angles-morts-scene1": {
     "description": "ATTENTION! ANGLES MORTS, Szene 1",
     "type": "IMAGE",
-    "url": "./artworks/angles-morts/szene1.jpg"
+    "url": "./artworks/angles-morts/szene1.png"
+  },
+  "angles-morts-scene2": {
+    "description": "ATTENTION! ANGLES MORTS, Szene 2",
+    "type": "IMAGE",
+    "url": "./artworks/angles-morts/szene2.jpg"
   },
   "tpli-main": {
     "description": "TPLI",

@@ -6,7 +6,8 @@
     "heroMediaId": "angles-morts-main",
     "mediaIds": [
       "angles-morts-main",
-      "angles-morts-scene1"
+      "angles-morts-scene1",
+      "angles-morts-scene2"
     ],
     "size": {
       "height": "268",
@@ -131,7 +132,8 @@
     "mediaIds": [
       "fressen-main",
       "fressen-part1",
-      "fressen-part2"
+      "fressen-part2",
+      "fressen-scene-main"
     ],
     "size": {
       "height": "100",
