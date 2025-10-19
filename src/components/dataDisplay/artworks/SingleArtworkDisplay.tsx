@@ -15,7 +15,7 @@ const renderDescription = (description: string) => {
     }
 
     return (
-        <div className={"mt-2 text-sm italic text-secondary"} translate={"no"}>
+        <div className={"mt-2 text-sm italic text-secondary"}>
             {description}
         </div>
     )

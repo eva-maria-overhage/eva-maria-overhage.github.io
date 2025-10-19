@@ -32,7 +32,11 @@ const ArtworkDisplay = (
                         return (
                             <Collapsible
                                 key={artworkId}
-                                header={value.title}
+                                header={
+                                    <span translate={"no"}>
+                                        {value.title}
+                                    </span>
+                            }
                                 className={"w-full text-lg"}
                                 initialCollapsed={initialCollapsedStrategy(i)}
                                 clickListenerLocation={ClickListenerLocation.WHOLE_HEADER}
