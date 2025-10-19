@@ -1,21 +1,21 @@
 {
-  "klone": {
-    "title": "Klone",
+  "angles-morts": {
+    "title": "ATTENTION! ANGLES MORTS",
     "description": "",
-    "year": "2024",
-    "heroMediaId": "klone-main",
+    "year": "2025",
+    "heroMediaId": "angles-morts-main",
     "mediaIds": [
-      "klone-main",
-      "klone-scene1",
-      "klone-scene2"
+      "angles-morts-main",
+      "angles-morts-scene1"
     ],
     "size": {
-      "height": "100",
-      "width": "140",
+      "height": "268",
+      "width": "300",
+      "depth": "284",
       "unit": "cm"
     },
     "materials": [],
-    "technique": "Airbrush, Acryl, 3D-Stift auf PVC-Boden",
+    "technique": "Installation mit LKW-Planen, Holz, Hebegurten und Reflexfolie",
     "tags": []
   },
   "tpli": {
@@ -33,43 +33,6 @@
       "Malerfolie",
       "Gartenfolie"
     ],
-    "tags": []
-  },
-  "gefundenes_fressen": {
-    "title": "Gefundenes Fressen",
-    "description": "",
-    "year": "2024",
-    "heroMediaId": "fressen-main",
-    "mediaIds": [
-      "fressen-main",
-      "fressen-part1",
-      "fressen-part2"
-    ],
-    "size": {
-      "height": "100",
-      "width": "125",
-      "unit": "cm"
-    },
-    "materials": [],
-    "technique": "Airbrush, Acrylfarbe und Klebefolie auf PVC-Plane",
-    "tags": []
-  },
-  "squares_title": {
-    "title": "▯▯▯▯▯▯▯▯▯▯▯▯▯▯",
-    "description": "",
-    "year": "2024",
-    "heroMediaId": "squares-title-main",
-    "mediaIds": [
-      "squares-title-main",
-      "squares-title-scene-main"
-    ],
-    "size": {
-      "height": "30",
-      "width": "94",
-      "unit": "cm"
-    },
-    "materials": [],
-    "technique": "Acrylfarbe auf Aluminiumplatte",
     "tags": []
   },
   "catching_w/o_releasing": {
@@ -105,26 +68,78 @@
       "unit": "cm"
     },
     "materials": [],
-    "technique": "Sprühfarbe, Acryl und Teppich auf Gewebe",
+    "technique": "Sprühlack, Acrylfarbe und Feuerzeug auf Gewebe",
     "tags": []
   },
-  "angles-morts": {
-    "title": "ATTENTION! ANGLES MORTS",
+  "squares_title": {
+    "title": "▯▯▯▯▯▯▯▯▯▯▯▯▯▯",
     "description": "",
-    "year": "2025",
-    "heroMediaId": "angles-morts-main",
+    "year": "2024",
+    "heroMediaId": "squares-title-main",
     "mediaIds": [
-      "angles-morts-main",
-      "angles-morts-scene1"
+      "squares-title-main",
+      "squares-title-scene-main"
     ],
     "size": {
-      "height": "268",
-      "width": "300",
-      "depth": "284",
+      "height": "30",
+      "width": "94",
       "unit": "cm"
     },
     "materials": [],
-    "technique": "Installation mit LKW-Planen, Holz, Hebegurten und Reflexfolie",
+    "technique": "Acrylfarbe auf Aluminiumplatte",
+    "tags": []
+  },
+  "otium": {
+    "title": "Otium",
+    "description": "",
+    "year": "2024",
+    "heroMediaId": "otium-scene1",
+    "mediaIds": [
+      "otium-scene1",
+      "otium-scene2",
+      "otium-scene3",
+      "otium-scene4"
+    ],
+    "materials": [],
+    "technique": "Video",
+    "tags": []
+  },
+  "klone": {
+    "title": "Klone",
+    "description": "",
+    "year": "2024",
+    "heroMediaId": "klone-main",
+    "mediaIds": [
+      "klone-main",
+      "klone-scene1",
+      "klone-scene2"
+    ],
+    "size": {
+      "height": "100",
+      "width": "140",
+      "unit": "cm"
+    },
+    "materials": [],
+    "technique": "Airbrush, Acryl, 3D-Stift auf PVC-Boden",
+    "tags": []
+  },
+  "gefundenes_fressen": {
+    "title": "Gefundenes Fressen",
+    "description": "",
+    "year": "2024",
+    "heroMediaId": "fressen-main",
+    "mediaIds": [
+      "fressen-main",
+      "fressen-part1",
+      "fressen-part2"
+    ],
+    "size": {
+      "height": "100",
+      "width": "125",
+      "unit": "cm"
+    },
+    "materials": [],
+    "technique": "Airbrush, Acrylfarbe und Klebefolie auf PVC-Plane",
     "tags": []
   },
   "auslieferung": {
@@ -143,21 +158,6 @@
     },
     "materials": [],
     "technique": "Sprühfarbe, Acryl und Teppich auf Gewebe",
-    "tags": []
-  },
-  "otium": {
-    "title": "Otium",
-    "description": "",
-    "year": "2024",
-    "heroMediaId": "otium-scene1",
-    "mediaIds": [
-      "otium-scene1",
-      "otium-scene2",
-      "otium-scene3",
-      "otium-scene4"
-    ],
-    "materials": [],
-    "technique": "Video",
     "tags": []
   }
 }
