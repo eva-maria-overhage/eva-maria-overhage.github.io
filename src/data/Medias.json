@@ -123,5 +123,20 @@
     "description": "Otium, Szene 4",
     "type": "IMAGE",
     "url": "./artworks/otium/szene4.jpeg"
+  },
+  "catching-without-releasing-main": {
+    "description": "Catching without releasing",
+    "type": "IMAGE",
+    "url": "./artworks/catching-without-releasing/main.jpg"
+  },
+  "catching-without-releasing-part1": {
+    "description": "Catching without releasing, Detail 1",
+    "type": "IMAGE",
+    "url": "./artworks/catching-without-releasing/part1.jpeg"
+  },
+  "catching-without-releasing-part2": {
+    "description": "Catching without releasing, Detail 2",
+    "type": "IMAGE",
+    "url": "./artworks/catching-without-releasing/part2.jpeg"
   }
 }

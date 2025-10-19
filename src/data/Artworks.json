@@ -75,7 +75,11 @@
   "catching_w/o_releasing": {
     "title": "Catching without releasing",
     "year": "2025",
-    "mediaIds": [],
+    "mediaIds": [
+      "catching-without-releasing-main",
+      "catching-without-releasing-part1",
+      "catching-without-releasing-part2"
+    ],
     "size": {
       "height": "164",
       "width": "127",
