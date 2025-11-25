@@ -1,4 +1,4 @@
-import {NavLink, Outlet, ScrollRestoration, useLocation} from "react-router";
+import {NavLink, Outlet, ScrollRestoration, useLoaderData, useLocation} from "react-router";
 import OutletWrapper from "../components/general/OutletWrapper.tsx";
 import {
     Sheet,
@@ -9,22 +9,52 @@ import {
     SheetTrigger
 } from "@/components/ui/sheet.tsx";
 import {cn} from "@/lib/utils.ts";
+import {AVAILABLE_ROUTE, AvailableRoute, Settings} from "../../types/data/Settings.ts";
+import {getSanityData} from "@/lib/sanity.ts";
+
+const SANITY_QUERY = `*[_id == "SETTING_SINGLETON"][0] {
+  email,
+  enabled_sections,
+  instagram
+}`
+
+export const loader = async () => {
+    const sanityData = await getSanityData<Settings>(SANITY_QUERY);
+    return {
+        settings: sanityData
+    } as LoaderData;
+}
+
+interface LoaderData {
+    settings: Settings;
+}
 
 interface SimpleLink {
     label: string
+    location: string
 }
 
-const links: Record<string, SimpleLink> = {
-    "/": {label: "Startseite"},
-    //"/about": {label: "Biographie"},
-    "/artworks": {label: "Werke"},
-    "/exhibitions": {label: "Ausstellungen"},
+const links: Record<AvailableRoute, SimpleLink> = {
+    [AVAILABLE_ROUTE.ROOT]: {label: "Startseite", location: "/"},
+    [AVAILABLE_ROUTE.BIOGRAPHY]: {label: "Biographie", location: "/about"},
+    [AVAILABLE_ROUTE.ARTWORKS]: {label: "Werke", location: "/artworks"},
+    [AVAILABLE_ROUTE.EXHIBITIONS]: {label: "Ausstellungen", location: "/exhibitions"},
 };
+
+const pathToLabel = (path: string) => {
+    return Object
+        .values(links)
+        .filter((route) => route.location === path)[0]?.label;
+}
 
 const Root = () => {
 
+    const loaderData = useLoaderData<LoaderData>();
+    const settings = loaderData.settings;
+
     const location = useLocation();
-    const linkEntries = Object.entries(links);
+    const linkEntries = Object.entries(links)
+                              .filter(([route]) => settings.enabled_sections.find((avail) => avail === route) ?? false);
 
     return (
         <>
@@ -36,11 +66,11 @@ const Root = () => {
                         </div>
                         <div className={"flex justify-end items-center flex-1"}>
                             {
-                               linkEntries.map(([to, link]) => {
+                                linkEntries.map(([route, link]) => {
                                     return (
-                                        <div key={to} className={"inline-flex h-full"}>
+                                        <div key={route} className={"inline-flex h-full"}>
                                             <div className={"static px-4 flex justify-center items-center"}>
-                                                <NavLink to={to} tabIndex={-1}>
+                                                <NavLink to={link.location} tabIndex={-1}>
                                                     <p className={"cool-underline transition-all hover:scale-105"}
                                                        tabIndex={0}>{link.label}</p>
                                                 </NavLink>
@@ -51,10 +81,11 @@ const Root = () => {
                             }
                         </div>
                     </div>
-                    <div className="flex lg:hidden items-center text-lg px-[5%] h-full w-full text-primary flex-row justify-end">
+                    <div
+                        className="flex lg:hidden items-center text-lg px-[5%] h-full w-full text-primary flex-row justify-end">
                         <div className={"flex justify-start items-center font-bold text-xl w-full"}>
                             {
-                                links[location.pathname].label
+                                pathToLabel(location.pathname)
                             }
                         </div>
                         <Sheet>
@@ -67,11 +98,11 @@ const Root = () => {
                                         Navigation
                                     </SheetTitle>
                                 </SheetHeader>
-                                {linkEntries.map(([to, link]) => (
-                                    <div key={to} className="pl-4">
+                                {linkEntries.map(([route, link]) => (
+                                    <div key={route} className="pl-4">
                                         <div className={"w-fit text-xl"}>
                                             <SheetClose asChild>
-                                                <NavLink to={to} tabIndex={-1}>
+                                                <NavLink to={link.location} tabIndex={-1}>
                                                         <span
                                                             className={cn("cool-underline dummy-transition")}
                                                             tabIndex={0}>{link.label}</span>
@@ -99,7 +130,7 @@ const Root = () => {
                         </NavLink>
                     </div>
                     <div className={"px-4"}>
-                        <NavLink to={"mailto:eva-maria.overhage@gmx.de"} target={"_blank"}>
+                        <NavLink to={`mailto:${settings.email}`} target={"_blank"}>
                             <p className={"cool-underline"}>Kontakt</p>
                         </NavLink>
                     </div>

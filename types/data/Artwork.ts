@@ -1,20 +1,32 @@
-import {ID, ISO8601Date} from "./Shared";
-import {Media} from "./Media";
-import {Tag} from "./Tag";
+import {ISO8601Date, Reference, SanityIdObject, SanityImageAsset} from "./Shared";
+import {Tag} from "./Tag.ts";
 
-export interface Artwork {
-    mediaIds: ID<Media>[];
-    heroMediaId?: ID<Media>;
+type ArtworkWithDescription = {
     title: string;
+    hasDescription: true;
     description: string;
-    year: ISO8601Date;
+    media: Reference<SanityImageAsset>;
+    publish_date: ISO8601Date;
     size?: {
         height: number;
         width: number;
         depth?: number;
-        unit: 'cm' | 'm' | 'mm' | 'in' | 'ft';
-    }
-    materials?: string[];
-    technique?: string;
-    tags?: ID<Tag>[];
-}
+    };
+    tags: Reference<Tag>;
+};
+
+type ArtworkWithoutDescription = {
+    title: string;
+    hasDescription: false;
+    description?: never;
+    media: Reference<SanityImageAsset>;
+    publish_date: ISO8601Date;
+    size?: {
+        height: number;
+        width: number;
+        depth?: number;
+    };
+    tags: Reference<Tag>;
+};
+
+export type Artwork = (ArtworkWithDescription | ArtworkWithoutDescription) & SanityIdObject;
