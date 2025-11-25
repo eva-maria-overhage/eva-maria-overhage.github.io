@@ -1,8 +1,11 @@
-import {ISO8601Date} from "./Shared";
+import {ISO8601Date, Reference, SanityIdObject} from "./Shared";
+import {ExhibitionSeries} from "./ExhibitionSeries.ts";
+import {Location} from "./Location.ts";
 
-export interface Exhibition {
-    startDate: ISO8601Date;
-    endDate?: ISO8601Date;
-    name: string;
-    location: string;
-}
+export type Exhibition = {
+    title: string;
+    location: Reference<Location>
+    series?: Reference<ExhibitionSeries>
+    start_date: ISO8601Date;
+    end_date?: ISO8601Date;
+} & SanityIdObject;

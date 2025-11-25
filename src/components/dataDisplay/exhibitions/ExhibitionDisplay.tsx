@@ -1,5 +1,4 @@
 import {Exhibition} from "../../../../types/data/Exhibition.ts";
-import exhibitions from "@/data/Exhibitions.json";
 import Collapsible, {ClickListenerLocation} from "../../general/collapsible/Collapsible.tsx";
 import {
     DateTimeOrderingStrategy, DateToDateTimeOrderingAdapter, DescendingDateTimeStrategy,
@@ -10,8 +9,10 @@ import {
 } from "./ExhibitionDisplay.config.ts";
 import {ID} from "../../../../types/data/Shared.ts";
 import {Tooltip, TooltipContent, TooltipTrigger} from "@/components/ui/tooltip.tsx";
+import {ExhibitionsSanityQueryResult, SingleResolvedExhibition} from "@/routes/Exhibitions.tsx";
 
 export interface ExhibitionDisplayProps {
+    exhibitions: ExhibitionsSanityQueryResult;
     collapseStrategy?: InitialCollapsedStrategy;
     dateTimeStrategy?: DateTimeOrderingStrategy;
     dateDisplayStrategy?: DateDisplayStrategy;
@@ -28,20 +29,20 @@ type StatusInfo =
     | { type: ExhibitionStatus.ACTIVE, remainingDays: number }
     | { type: ExhibitionStatus.PAST };
 
-interface InternalExhibitionData extends Exhibition {
+interface InternalExhibitionData extends SingleResolvedExhibition {
     id: ID<Exhibition>;
     startDateObject: Date;
     endDateObject: Date;
     status: StatusInfo;
 }
 
-const dataToInternalMapping = (exhibitions: Record<ID<Exhibition>, Exhibition>): Map<string, InternalExhibitionData[]> => {
+const dataToInternalMapping = (exhibitions: ExhibitionsSanityQueryResult): Map<string, InternalExhibitionData[]> => {
     const today = new Date();
     const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
-    return Object.entries(exhibitions).map(([id, exhibition]) => {
-        const startDateObject = new Date(exhibition.startDate);
-        const endDateObject = new Date(exhibition.endDate ?? exhibition.startDate);
+    return exhibitions.map(( exhibition) => {
+        const startDateObject = new Date(exhibition.start_date);
+        const endDateObject = new Date(exhibition.end_date ?? exhibition.start_date);
 
         let status: StatusInfo;
 
@@ -57,7 +58,7 @@ const dataToInternalMapping = (exhibitions: Record<ID<Exhibition>, Exhibition>):
 
         return {
             ...exhibition,
-            id,
+            id: exhibition.id,
             startDateObject,
             endDateObject,
             status
@@ -109,6 +110,7 @@ const renderStatusIndicator = (exhibition: InternalExhibitionData) => {
 
 const ExhibitionDisplay = (
     {
+        exhibitions,
         collapseStrategy = FirstOpenStrategy,
         dateTimeStrategy = DescendingDateTimeStrategy,
         dateDisplayStrategy = DisplayStartMonthLongStrategy
@@ -154,7 +156,7 @@ const ExhibitionDisplay = (
                                                             <div
                                                                 className={"w-full flex-row items-center justify-center h-fit grid-cols-[0fr_minmax(0,_1fr)] grid text-lg"}>
                                                                 {renderStatusIndicator(exhibition)}
-                                                                <p>{dateDisplayStrategy(exhibition.startDateObject)}: {exhibition.name} - {exhibition.location}</p>
+                                                                <p>{dateDisplayStrategy(exhibition.startDateObject)}: {exhibition.title} - {exhibition.location.title}</p>
                                                             </div>
                                                         </li>
                                                     )

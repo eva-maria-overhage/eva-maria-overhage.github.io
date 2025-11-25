@@ -1,10 +1,9 @@
 import {useState} from "react";
 import styles from "./MediaImage.module.css";
-import {applyMultipleClasses} from "../../../Utils.ts";
-import {Media} from "../../../types/data/Media.ts";
+import {cn} from "@/lib/utils.ts";
 
 export interface MediaImageProps {
-    imageMedia: Media;
+    imageMedia: string;
     className?: string;
 }
 
@@ -34,9 +33,8 @@ const MediaImage = (
     return (
         <img draggable={false}
              alt={""}
-             aria-label={imageMedia.description ?? ""}
-             className={applyMultipleClasses(styles.image, className ?? "", shouldHide() ? styles.hidden : "")}
-             onLoad={handleLoad} onError={handleError} src={imageMedia.url}
+             className={cn(styles.image, className ?? "", shouldHide() ? styles.hidden : "")}
+             onLoad={handleLoad} onError={handleError} src={imageMedia}
         />
     )
 }
