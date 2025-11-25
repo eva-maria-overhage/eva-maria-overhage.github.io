@@ -40,7 +40,7 @@ const dataToInternalMapping = (exhibitions: ExhibitionsSanityQueryResult): Map<s
     const today = new Date();
     const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
-    return Object.entries(exhibitions).map(([id, exhibition]) => {
+    return exhibitions.map(( exhibition) => {
         const startDateObject = new Date(exhibition.start_date);
         const endDateObject = new Date(exhibition.end_date ?? exhibition.start_date);
 
@@ -58,7 +58,7 @@ const dataToInternalMapping = (exhibitions: ExhibitionsSanityQueryResult): Map<s
 
         return {
             ...exhibition,
-            id,
+            id: exhibition.id,
             startDateObject,
             endDateObject,
             status
