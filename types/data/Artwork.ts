@@ -1,32 +1,25 @@
 import {ISO8601Date, Reference, SanityIdObject, SanityImageAsset} from "./Shared";
 import {Tag} from "./Tag.ts";
 
-type ArtworkWithDescription = {
+type BaseArtwork = {
     title: string;
+    media: Reference<SanityImageAsset>[];
+    publish_date: ISO8601Date;
+    size?: {
+        height: number;
+        width: number;
+        depth?: number;
+    };
+    tags: Reference<Tag>[];
+}
+
+type ArtworkWithDescription = {
     hasDescription: true;
     description: string;
-    media: Reference<SanityImageAsset>;
-    publish_date: ISO8601Date;
-    size?: {
-        height: number;
-        width: number;
-        depth?: number;
-    };
-    tags: Reference<Tag>;
-};
+} & BaseArtwork;
 
 type ArtworkWithoutDescription = {
-    title: string;
     hasDescription: false;
-    description?: never;
-    media: Reference<SanityImageAsset>;
-    publish_date: ISO8601Date;
-    size?: {
-        height: number;
-        width: number;
-        depth?: number;
-    };
-    tags: Reference<Tag>;
-};
+} & BaseArtwork;
 
 export type Artwork = (ArtworkWithDescription | ArtworkWithoutDescription) & SanityIdObject;

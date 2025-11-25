@@ -1,5 +1,6 @@
 import {ISO8601Date, Reference, SanityIdObject} from "./Shared";
 import {ExhibitionSeries} from "./ExhibitionSeries.ts";
+import {Location} from "./Location.ts";
 
 export type Exhibition = {
     title: string;
