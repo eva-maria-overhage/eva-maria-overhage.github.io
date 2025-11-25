@@ -54,7 +54,7 @@ const Root = () => {
 
     const location = useLocation();
     const linkEntries = Object.entries(links)
-                              .filter(([route]) => settings.enabled_sections.find((avail) => avail === route) ?? false);
+                              .filter(([route]) => settings.enabled_sections.includes(route as AvailableRoute))
 
     return (
         <>
