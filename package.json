@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "postbuild": "cpx CNAME dist/",
+    "postbuild": "cpx CNAME dist",
     "lint": "eslint .",
     "preview": "vite preview"
   },
