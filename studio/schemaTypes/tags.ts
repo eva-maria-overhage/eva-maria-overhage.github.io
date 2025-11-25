@@ -14,7 +14,7 @@ export default {
             name: "description",
             title: "Beschreibung",
             type: "string",
-            description: "Beschreibung des Tags, hier auch gerne ausfühlicher",
+            description: "Beschreibung des Tags, hier auch gerne ausführlicher",
             validation: (Rule: any) => Rule.optional()
         },
         {

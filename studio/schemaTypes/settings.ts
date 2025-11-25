@@ -53,7 +53,7 @@ export default {
     preview: {
         prepare() {
             return {
-                tile: "Einstellungen"
+                title: "Einstellungen"
             }
         }
     }

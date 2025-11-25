@@ -43,7 +43,7 @@ export default {
     preview: {
         prepare() {
             return {
-                tile: "Startseite"
+                title: "Startseite"
             }
         }
     }
