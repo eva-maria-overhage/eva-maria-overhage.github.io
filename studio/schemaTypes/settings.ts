@@ -3,8 +3,8 @@ export default {
     title: "Einstellungen",
     type: "document",
     fieldsets: [
-        { name: "links", title: "Links", options: { collapsible: true } },
-        { name: "features", title: "Features", options: { collapsible: true } }
+        {name: "links", title: "Links", options: {collapsible: true}},
+        {name: "features", title: "Features", options: {collapsible: true}}
     ],
     fields: [
         {
@@ -24,11 +24,49 @@ export default {
             validation: (Rule: any) => Rule.email().required()
         },
         {
-            name: "instagram",
-            title: "Instagram",
-            description: "Kompletter Link zu deinem Instagram Profil",
+            name: "social_media",
+            title: "Social Media",
             fieldset: "links",
-            type: "url"
+            type: "array",
+            of: [
+                {
+                    type: "object",
+                    name: "social_media_entry",
+                    fields: [
+                        {
+                            name: "Titel",
+                            title: "Title",
+                            type: "string",
+                        },
+                        {
+                            name: "Link",
+                            title: "Link",
+                            type: "url",
+                        },
+                        {
+                            name: "logo_id",
+                            title: "Logo Id",
+                            type: "string",
+                            options: {
+                                list: [
+                                    {
+                                        title: 'Instagram',
+                                        value: 'instagram'
+                                    },
+                                    {
+                                        title: 'X (Twitter)',
+                                        value: 'twitter'
+                                    },
+                                    {
+                                        title: 'Artstation',
+                                        value: 'artstation'
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
         },
         {
             name: "enabled_sections",
@@ -38,13 +76,13 @@ export default {
                 " werden diese Links nicht mehr im Header angezeigt. Die Seiten können aber von technisch versierten" +
                 " Nutzern noch aufgerufen werden.",
             type: "array",
-            of: [{ type: "string" }],
+            of: [{type: "string"}],
             options: {
                 list: [
-                    { title: "Startseite", value: "root" },
-                    { title: "Biographie", value: "biography" },
-                    { title: "Kunstwerke", value: "artworks" },
-                    { title: "Ausstellungen", value: "exhibitions" }
+                    {title: "Startseite", value: "root"},
+                    {title: "Biographie", value: "biography"},
+                    {title: "Kunstwerke", value: "artworks"},
+                    {title: "Ausstellungen", value: "exhibitions"}
                 ]
             },
             initialValue: ["root", "artworks", "exhibitions"]
