@@ -9,7 +9,7 @@ import {Artwork} from "../../types/data/Artwork.ts";
 import {getSanityData} from "@/lib/sanity.ts";
 
 
-const SANITY_QUERY = `*[_type == "works"] {
+const SANITY_QUERY = `*[_type == "works"]|order(orderRank) {
   "id": _id,
   title,
   has_description,

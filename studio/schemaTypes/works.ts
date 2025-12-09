@@ -1,7 +1,12 @@
+import {orderRankField, orderRankOrdering} from "@sanity/orderable-document-list";
+
 export default {
     name: "works",
     title: "Werke",
     type: "document",
+
+    orderings: [orderRankOrdering],
+
     fields: [
         {
             name: "title",
@@ -92,7 +97,8 @@ export default {
                 { type: "reference", to: [{ type: "tags" }]}
             ],
             validation: (Rule: any) => Rule.unique(),
-        }
+        },
+        orderRankField({ type: 'works', newItemPosition: 'before', }),
     ],
     preview: {
         select: {

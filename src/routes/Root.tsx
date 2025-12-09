@@ -11,11 +11,12 @@ import {
 import {cn} from "@/lib/utils.ts";
 import {AVAILABLE_ROUTE, AvailableRoute, Settings} from "../../types/data/Settings.ts";
 import {getSanityData} from "@/lib/sanity.ts";
+import {Logo, LogoId} from "@/components/media/logo/Logo.tsx";
 
 const SANITY_QUERY = `*[_id == "SETTING_SINGLETON"][0] {
   email,
   enabled_sections,
-  instagram
+  social_media
 }`
 
 export const loader = async () => {
@@ -54,7 +55,7 @@ const Root = () => {
 
     const location = useLocation();
     const linkEntries = Object.entries(links)
-                              .filter(([route]) => settings.enabled_sections.includes(route as AvailableRoute))
+        .filter(([route]) => settings.enabled_sections.includes(route as AvailableRoute))
 
     return (
         <>
@@ -123,16 +124,40 @@ const Root = () => {
                 </OutletWrapper>
             </main>
             <footer>
-                <div className={"w-full min-h-30 flex flex-row items-center justify-center relative bg-(--background)"}>
-                    <div className={"px-4"}>
-                        <NavLink to={"/imprint"} target={"_blank"}>
-                            <p className={"cool-underline"}>Impressum</p>
-                        </NavLink>
-                    </div>
-                    <div className={"px-4"}>
-                        <NavLink to={`mailto:${settings.email}`} target={"_blank"}>
-                            <p className={"cool-underline"}>Kontakt</p>
-                        </NavLink>
+                <div className={"w-full bg-(--background) overflow-hidden py-4 px-6"}>
+                    <div
+                        className={"relative grid grid-cols-2 grid-flow-row px-4 lg:justify-between lg:grid-flow-col lg:grid-rows-[auto] lg:px-[max(calc(var(--spacing)*4),calc(50%-500px))]"}>
+                        <div className={"flex flex-col w-fit my-4"}>
+                            <h3 className={"font-bold text-lg mb-2"}>Social Media</h3>
+                            {
+                                settings.social_media?.map((entry) => (
+                                    <div className={"flex flex-row gap-1 items-center"} key={entry.name}>
+                                        <Logo logoId={entry.logo_id as LogoId}
+                                              className={"h-8 aspect-square overflow-hidden"}/>
+                                        <p className={"cool-underline w-fit"}>
+                                            <NavLink to={entry.link}
+                                                     target={"_blank"}>
+                                                Instagram
+                                            </NavLink>
+                                        </p>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                        <div className={"flex flex-col w-fit my-4"}>
+                            <h3 className={"font-bold text-lg mb-2"}>Rechtliches</h3>
+                            <p className={"cool-underline w-fit"}>
+                                <NavLink to={"/imprint"}
+                                         target={"_blank"}>
+                                    Impressum
+                                </NavLink>
+                            </p>
+                            <p className={"cool-underline w-fit"}>
+                                <NavLink to={`mailto:${settings.email}`} target={"_blank"}>
+                                    Kontakt
+                                </NavLink>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </footer>
