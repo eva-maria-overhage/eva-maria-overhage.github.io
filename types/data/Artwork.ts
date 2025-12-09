@@ -11,6 +11,7 @@ type BaseArtwork = {
         depth?: number;
     };
     tags: Reference<Tag>[];
+    orderRank: number;
 }
 
 type ArtworkWithDescription = {
